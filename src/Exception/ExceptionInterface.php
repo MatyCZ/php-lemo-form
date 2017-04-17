@@ -1,6 +1,6 @@
 <?php
 
-namespace LemoForm\Exception;
+namespace Lemo\Form\Exception;
 
 interface ExceptionInterface
 {}

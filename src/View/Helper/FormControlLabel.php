@@ -1,8 +1,8 @@
 <?php
 
-namespace LemoForm\Form\View\Helper;
+namespace Lemo\Form\Form\View\Helper;
 
-use LemoForm\Exception;
+use Lemo\Form\Exception;
 use Zend\Form\ElementInterface;
 
 class FormControlLabel extends AbstractHelper

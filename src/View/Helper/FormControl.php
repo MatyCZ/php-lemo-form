@@ -1,6 +1,6 @@
 <?php
 
-namespace LemoForm\Form\View\Helper;
+namespace Lemo\Form\Form\View\Helper;
 
 use Zend\Form\ElementInterface;
 use Zend\Form\View\Helper\FormElement;

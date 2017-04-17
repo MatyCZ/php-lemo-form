@@ -1,6 +1,6 @@
 <?php
 
-namespace LemoForm\Form;
+namespace Lemo\Form\Form;
 
 use Zend\Form\ElementInterface;
 use Zend\Form\FieldsetInterface;
