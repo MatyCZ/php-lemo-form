@@ -1,0 +1,29 @@
+{
+    "name": "matycz/lemo-form",
+    "description": "",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "zf2",
+        "bootstrap"
+    ],
+    "homepage": "https://github.com/MatyCZ/LemoForm",
+    "authors": [
+        {
+            "name": "Matej Szendi",
+            "email": "matej.szendi@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Lemo\\Form\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^5.5 || ^7.0",
+        "zendframework/zend-form": "2.* || 3.*",
+        "zendframework/zend-i18n": "2.* || 3.*",
+        "zendframework/zend-mvc": "2.* || 3.*",
+        "zendframework/zend-stdlib": "2.* || 3.*",
+        "zendframework/zend-view": "2.* || 3.*"
+    }
+}
