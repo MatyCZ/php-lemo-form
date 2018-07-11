@@ -1,20 +1,48 @@
 <?php
 
+namespace Lemo\Form;
+
 return [
-    'view_helpers'       => [
+
+    'service_manager' => [
         'invokables' => [
-            'formControl'                  => \Lemo\Form\Form\View\Helper\FormControl::class,
-            'formControlAddon'             => \Lemo\Form\Form\View\Helper\FormControlAddon::class,
-            'formControlHelpBlock'         => \Lemo\Form\Form\View\Helper\FormControlHelpBlock::class,
-            'formControlLabel'             => \Lemo\Form\Form\View\Helper\FormControlLabel::class,
-            'formControls'                 => \Lemo\Form\Form\View\Helper\FormControls::class,
-            'formGroupElement'             => \Lemo\Form\Form\View\Helper\FormGroupElement::class,
-            'formGroupElements'            => \Lemo\Form\Form\View\Helper\FormGroupElements::class,
-            'formGroups'                   => \Lemo\Form\Form\View\Helper\FormGroups::class,
-            'formGroupsCollection'         => \Lemo\Form\Form\View\Helper\FormGroupsCollection::class,
-            'formGroupsCollectionTemplate' => \Lemo\Form\Form\View\Helper\FormGroupsCollectionTemplate::class,
-            'formGroupsFieldset'           => \Lemo\Form\Form\View\Helper\FormGroupsFieldset::class,
-            'formRenderOptions'            => \Lemo\Form\Form\View\Helper\FormRenderOptions::class,
+            BootstrapFormOptions::class => BootstrapFormOptions::class,
+        ]
+    ],
+
+    'view_helpers' => [
+        'aliases' => [
+            'bootstrapForm'                => View\Helper\BootstrapForm::class,
+            'bootstrapFormCheck'           => View\Helper\BootstrapFormCheck::class,
+            'bootstrapFormCollection'      => View\Helper\BootstrapFormCollection::class,
+            'bootstrapFormInput'           => View\Helper\BootstrapFormInput::class,
+            'bootstrapFormInputElement'    => View\Helper\BootstrapFormInputElement::class,
+            'bootstrapFormInputGroup'      => View\Helper\BootstrapFormInputGroup::class,
+            'bootstrapFormGroup'           => View\Helper\BootstrapFormGroup::class,
+            'bootstrapFormGroups'          => View\Helper\BootstrapFormGroups::class,
+            'bootstrapFormInvalidFeedback' => View\Helper\BootstrapFormInvalidFeedback::class,
+            'bootstrapFormLabel'           => View\Helper\BootstrapFormLabel::class,
+            'bootstrapFormOptions'         => View\Helper\BootstrapFormOptions::class,
+            'bootstrapFormRow'             => View\Helper\BootstrapFormRow::class,
+        ],
+        'invokables' => [
+            'bootstrapFormInputGroupAppend'  => View\Helper\BootstrapFormInputGroupAppend::class,
+            'bootstrapFormInputGroupPrepend' => View\Helper\BootstrapFormInputGroupPrepend::class,
+            'bootstrapFormText'              => View\Helper\BootstrapFormText::class,
+        ],
+        'factories' => [
+            View\Helper\BootstrapForm::class                => View\Helper\BootstrapFormFactory::class,
+            View\Helper\BootstrapFormCheck::class           => View\Helper\BootstrapFormCheckFactory::class,
+            View\Helper\BootstrapFormCollection::class      => View\Helper\BootstrapFormCollectionFactory::class,
+            View\Helper\BootstrapFormInput::class           => View\Helper\BootstrapFormInputFactory::class,
+            View\Helper\BootstrapFormInputElement::class    => View\Helper\BootstrapFormInputElementFactory::class,
+            View\Helper\BootstrapFormInputGroup::class      => View\Helper\BootstrapFormInputGroupFactory::class,
+            View\Helper\BootstrapFormGroup::class           => View\Helper\BootstrapFormGroupFactory::class,
+            View\Helper\BootstrapFormGroups::class          => View\Helper\BootstrapFormGroupsFactory::class,
+            View\Helper\BootstrapFormInvalidFeedback::class => View\Helper\BootstrapFormInvalidFeedbackFactory::class,
+            View\Helper\BootstrapFormLabel::class           => View\Helper\BootstrapFormLabelFactory::class,
+            View\Helper\BootstrapFormOptions::class         => View\Helper\BootstrapFormOptionsFactory::class,
+            View\Helper\BootstrapFormRow::class             => View\Helper\BootstrapFormRowFactory::class,
         ],
     ],
 ];

@@ -1,23 +1,24 @@
 <?php
 
-namespace Lemo\Form\Form;
+namespace Lemo\Form;
 
 use Zend\Form\ElementInterface;
 use Zend\Form\FieldsetInterface;
+use Zend\Form\Form;
 use Zend\InputFilter\InputFilterInterface;
 use Zend\InputFilter\InputFilterProviderInterface;
 
-class Form extends \Zend\Form\Form
+class BootstrapForm extends Form
 {
     /**
      * @inheritdoc
      */
-    public function prepare()
+    public function prepare() : self
     {
-        parent::prepare();
-
         // Set Form attributes
         $this->setAttribute('novalidate', true);
+
+        parent::prepare();
 
         // Execute specific Form functions
         $this->appendAttributeRequired($this, $this->getInputFilter());
@@ -28,10 +29,12 @@ class Form extends \Zend\Form\Form
     /**
      * @param  FieldsetInterface    $formOrFieldset
      * @param  InputFilterInterface $inputFilter
-     * @return $this
+     * @return self
      */
-    protected function appendAttributeRequired(FieldsetInterface $formOrFieldset, InputFilterInterface $inputFilter = null)
-    {
+    protected function appendAttributeRequired(
+        FieldsetInterface $formOrFieldset,
+        InputFilterInterface $inputFilter = null
+    ) : self {
         /**
          * @var FieldsetInterface $fieldset
          */
@@ -39,7 +42,11 @@ class Form extends \Zend\Form\Form
 
             // Exists InputFilter for fieldset?
             $fieldsetInputFilter = null;
-            if ($inputFilter instanceof InputFilterInterface && $inputFilter->has($fieldsetName) && $inputFilter->get($fieldsetName) instanceof InputFilterInterface) {
+            if (
+                $inputFilter instanceof InputFilterInterface
+                && $inputFilter->has($fieldsetName)
+                && $inputFilter->get($fieldsetName) instanceof InputFilterInterface
+            ) {
                 $fieldsetInputFilter = $inputFilter->get($fieldsetName);
             }
 
@@ -52,13 +59,13 @@ class Form extends \Zend\Form\Form
         foreach ($formOrFieldset->getElements() as $elementName => $element) {
             if ($inputFilter instanceof InputFilterInterface) {
                 if ($inputFilter->has($elementName) && $inputFilter->get($elementName)->isRequired()) {
-                    $element->setAttribute('required', true);
+                    $element->setOption(BootstrapFormConstant::OPTION_REQUIRED, true);
                 }
             } elseif ($formOrFieldset instanceOf InputFilterProviderInterface) {
                 $spec = $formOrFieldset->getInputFilterSpecification();
 
                 if (!empty($spec[$elementName]['required'])) {
-                    $element->setAttribute('required', true);
+                    $element->setOption(BootstrapFormConstant::OPTION_REQUIRED, true);
                 }
             }
         }
