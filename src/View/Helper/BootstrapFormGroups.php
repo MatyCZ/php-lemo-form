@@ -4,7 +4,6 @@ namespace Lemo\Form\View\Helper;
 
 use Lemo\Form\BootstrapFieldsetRow;
 use Zend\Form\Element\Collection;
-use Zend\Form\ElementInterface;
 use Zend\Form\FieldsetInterface;
 
 class BootstrapFormGroups extends AbstractHelper
