@@ -13,7 +13,8 @@
         }
     ],
     "require": {
-        "php": "^7.0",
+        "php": "^7.1",
+        "ext-intl": "*",
         "zendframework/zend-form": "2.* || 3.*",
         "zendframework/zend-i18n": "2.* || 3.*",
         "zendframework/zend-mvc": "3.*",
