@@ -85,6 +85,7 @@ class BootstrapFormLabel extends AbstractHelper
     {
         $id = $this->convertNameToId($element);
 
+        /** @var Radio|Checkbox $element */
         $labelAttributes = $element->getLabelAttributes();
         $attributes = ['for' => $id];
 
