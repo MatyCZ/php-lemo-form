@@ -163,6 +163,7 @@ class BootstrapFormCheck extends AbstractHelper
             $optionElementClass = 'is-invalid';
         }
 
+        $pieces = [];
         foreach ($options as $key => $optionSpec) {
             $inputAttributes = $attributes;
 
@@ -182,12 +183,8 @@ class BootstrapFormCheck extends AbstractHelper
                     'value' => $key
                 ];
             }
-            if (isset($optionSpec['value'])) {
-                $value = $optionSpec['value'];
-            }
-            if (isset($optionSpec['label'])) {
-                $label = $optionSpec['label'];
-            }
+            $value = isset($optionSpec['value']) ? $optionSpec['value'] : null;
+            $label = isset($optionSpec['label']) ? $optionSpec['label'] : null;
             if (isset($optionSpec['selected'])) {
                 $selected = $optionSpec['selected'];
             }
@@ -200,7 +197,7 @@ class BootstrapFormCheck extends AbstractHelper
             }
 
             $optionElement = ($element instanceof Radio) ? new Radio() : new Checkbox();
-            $optionElement->setAttribute('id', $id . '-' . $value);
+            $optionElement->setAttribute('id', $id . ($value ? '-' . $value : ''));
             $optionElement->setAttribute('class', $optionElementClass);
             $optionElement->setAttribute('checked', $selected);
             $optionElement->setAttribute('disabled', $disabled);
