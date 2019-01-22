@@ -6,19 +6,17 @@ use Interop\Container\ContainerInterface;
 use Lemo\Form\BootstrapFormOptions;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
-class BootstrapFormInputFactory implements FactoryInterface
+class BootstrapFormElementCheckFactory implements FactoryInterface
 {
     /**
      * @inheritdoc
      */
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null) : BootstrapFormInput
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null) : BootstrapFormElementCheck
     {
-        return new BootstrapFormInput(
+        return new BootstrapFormElementCheck(
             $container->get('ViewHelperManager')->get(BootstrapFormElement::class),
-            $container->get('ViewHelperManager')->get(BootstrapFormElementCheck::class),
-            $container->get('ViewHelperManager')->get(BootstrapFormElementRadio::class),
-            $container->get('ViewHelperManager')->get(BootstrapFormInputGroup::class),
             $container->get('ViewHelperManager')->get(BootstrapFormInvalidFeedback::class),
+            $container->get('ViewHelperManager')->get(BootstrapFormLabel::class),
             $container->get(BootstrapFormOptions::class),
             $container->get('ViewHelperManager')->get(BootstrapFormText::class)
         );

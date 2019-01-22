@@ -6,15 +6,14 @@ use Lemo\Form\BootstrapFormConstant;
 use Lemo\Form\BootstrapFormOptions;
 use Zend\Form\Element\Checkbox;
 use Zend\Form\Element\MultiCheckbox;
-use Zend\Form\Element\Radio;
 use Zend\Form\ElementInterface;
 
-class BootstrapFormCheck extends AbstractHelper
+class BootstrapFormElementCheck extends AbstractElementHelper
 {
     /**
-     * @var BootstrapFormInputElement
+     * @var BootstrapFormElement
      */
-    protected $bootstrapFormInputElement;
+    protected $bootstrapFormElement;
 
     /**
      * @var BootstrapFormInvalidFeedback
@@ -37,41 +36,26 @@ class BootstrapFormCheck extends AbstractHelper
     protected $bootstrapFormText;
 
     /**
-     * @var array
-     */
-    protected $validTagAttributes = [
-        'checked'        => true,
-        'disabled'       => true,
-        'name'           => true,
-        'pattern'        => true,
-        'readonly'       => true,
-        'required'       => true,
-        'selected'       => true,
-        'type'           => true,
-        'value'          => true,
-    ];
-
-    /**
      * Konstruktor
      *
-     * @param BootstrapFormInputElement    $bootstrapFormInputElement
+     * @param BootstrapFormElement         $bootstrapFormElement
      * @param BootstrapFormInvalidFeedback $bootstrapFormInvalidFeedback
      * @param BootstrapFormLabel           $bootstrapFormLabel
      * @param BootstrapFormOptions         $bootstrapFormOptions
      * @param BootstrapFormText            $bootstrapFormText
      */
     public function __construct(
-        BootstrapFormInputElement $bootstrapFormInputElement,
+        BootstrapFormElement $bootstrapFormElement,
         BootstrapFormInvalidFeedback $bootstrapFormInvalidFeedback,
         BootstrapFormLabel $bootstrapFormLabel,
         BootstrapFormOptions $bootstrapFormOptions,
         BootstrapFormText $bootstrapFormText
     ) {
-        $this->bootstrapFormInputElement    = $bootstrapFormInputElement;
+        $this->bootstrapFormElement = $bootstrapFormElement;
         $this->bootstrapFormInvalidFeedback = $bootstrapFormInvalidFeedback;
-        $this->bootstrapFormLabel           = $bootstrapFormLabel;
-        $this->bootstrapFormOptions         = $bootstrapFormOptions;
-        $this->bootstrapFormText            = $bootstrapFormText;
+        $this->bootstrapFormLabel = $bootstrapFormLabel;
+        $this->bootstrapFormOptions = $bootstrapFormOptions;
+        $this->bootstrapFormText = $bootstrapFormText;
     }
 
     /**
@@ -95,7 +79,7 @@ class BootstrapFormCheck extends AbstractHelper
     {
         $pieces = [];
         $pieces[] = $this->openTag();
-        $pieces[] = $this->bootstrapFormInputElement->render($element);
+        $pieces[] = $this->bootstrapFormElement->render($element);
         if (BootstrapFormConstant::LAYOUT_VERTICAL === $this->bootstrapFormOptions->getLayout()) {
             $pieces[] = $this->bootstrapFormLabel->render($element);
         }
@@ -147,7 +131,7 @@ class BootstrapFormCheck extends AbstractHelper
      * @param  MultiCheckbox $element
      * @return string
      */
-    public function renderValueOptions(MultiCheckbox $element) : string
+    public function renderElements(MultiCheckbox $element) : string
     {
         $attributes = $element->getAttributes();
 
@@ -196,7 +180,7 @@ class BootstrapFormCheck extends AbstractHelper
                 $selected = true;
             }
 
-            $optionElement = ($element instanceof Radio) ? new Radio() : new Checkbox();
+            $optionElement = new Checkbox();
             $optionElement->setAttribute('id', $id . ($value ? '-' . $value : ''));
             $optionElement->setAttribute('class', $optionElementClass);
             $optionElement->setAttribute('checked', $selected);
@@ -208,7 +192,7 @@ class BootstrapFormCheck extends AbstractHelper
 
             $pieces[] = implode(PHP_EOL,[
                 $this->openTag(),
-                $this->bootstrapFormInputElement->render($optionElement),
+                $this->bootstrapFormElement->render($optionElement),
                 $this->bootstrapFormLabel->render($optionElement, true),
                 $this->closeTag()
             ]);

@@ -13,7 +13,7 @@ class BootstrapFormInputGroupFactory implements FactoryInterface
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null) : BootstrapFormInputGroup
     {
         return new BootstrapFormInputGroup(
-            $container->get('ViewHelperManager')->get(BootstrapFormInputElement::class),
+            $container->get('ViewHelperManager')->get(BootstrapFormElement::class),
             $container->get('ViewHelperManager')->get(BootstrapFormInputGroupAppend::class),
             $container->get('ViewHelperManager')->get(BootstrapFormInputGroupPrepend::class)
         );

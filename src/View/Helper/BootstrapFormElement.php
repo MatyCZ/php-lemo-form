@@ -10,7 +10,7 @@ use Zend\Form\Element\Radio;
 use Zend\Form\ElementInterface;
 use Zend\Form\View\Helper\FormElement;
 
-class BootstrapFormInputElement extends AbstractHelper
+class BootstrapFormElement extends AbstractElementHelper
 {
     /**
      * @var FormElement
@@ -46,7 +46,7 @@ class BootstrapFormInputElement extends AbstractHelper
      * @param ElementInterface $element
      * @return string
      */
-    public function render(ElementInterface $element)
+    public function render(ElementInterface $element): string
     {
         $element->setAttribute('id', $this->convertNameToId($element));
         $element->setAttribute('class' , $this->addClassesToInput($element));
@@ -64,17 +64,37 @@ class BootstrapFormInputElement extends AbstractHelper
             $element->setValue(str_replace(' ', '', $formatter->format($element->getValue())));
         }
 
-        $element->setAttribute('id', $this->convertNameToId($element));
-
         // Element
-        return $this->formElement->render($element) . PHP_EOL;
+        if ($element instanceof Radio) {
+            $html = $this->renderRadio($element);
+        } else {
+            $html = $this->formElement->render($element);
+        }
+
+        return $html . PHP_EOL;
+    }
+
+    /**
+     * @param  Radio $element
+     * @return string
+     */
+    public function renderRadio(Radio $element): string
+    {
+        $attributes = $element->getAttributes();
+        $attributes['value'] = $element->getValue();
+
+        return sprintf(
+            '<input %s%s',
+            $this->createAttributesString($attributes),
+            $this->getInlineClosingBracket()
+        );
     }
 
     /**
      * @param  ElementInterface $element
      * @return string
      */
-    private function addClassesToInput(ElementInterface $element) : string
+    private function addClassesToInput(ElementInterface $element): string
     {
         $class = $element->getAttribute('class');
 

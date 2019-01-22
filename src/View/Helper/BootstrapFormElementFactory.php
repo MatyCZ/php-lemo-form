@@ -6,14 +6,14 @@ use Interop\Container\ContainerInterface;
 use Zend\Form\View\Helper\FormElement;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
-class BootstrapFormInputElementFactory implements FactoryInterface
+class BootstrapFormElementFactory implements FactoryInterface
 {
     /**
      * @inheritdoc
      */
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null) : BootstrapFormInputElement
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null) : BootstrapFormElement
     {
-        return new BootstrapFormInputElement(
+        return new BootstrapFormElement(
             $container->get('ViewHelperManager')->get(FormElement::class)
         );
     }

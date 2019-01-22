@@ -8,7 +8,7 @@ use Zend\Form\ElementInterface;
 class BootstrapFormInputGroup extends AbstractHelper
 {
     /**
-     * @var BootstrapFormInputElement
+     * @var BootstrapFormElement
      */
     protected $bootstrapFormInputElement;
 
@@ -25,12 +25,12 @@ class BootstrapFormInputGroup extends AbstractHelper
     /**
      * Konstruktor
      *
-     * @param BootstrapFormInputElement      $bootstrapFormInputElement
+     * @param BootstrapFormElement           $bootstrapFormInputElement
      * @param BootstrapFormInputGroupAppend  $bootstrapFormInputGroupAppend
      * @param BootstrapFormInputGroupPrepend $bootstrapFormInputGroupPrepend
      */
     public function __construct(
-        BootstrapFormInputElement  $bootstrapFormInputElement,
+        BootstrapFormElement  $bootstrapFormInputElement,
         BootstrapFormInputGroupAppend $bootstrapFormInputGroupAppend,
         BootstrapFormInputGroupPrepend $bootstrapFormInputGroupPrepend
     ) {

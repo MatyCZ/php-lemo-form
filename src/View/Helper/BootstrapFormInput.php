@@ -12,19 +12,24 @@ use Zend\Form\ElementInterface;
 class BootstrapFormInput extends AbstractHelper
 {
     /**
-     * @var BootstrapFormCheck
+     * @var BootstrapFormElement
      */
-    protected $bootstrapFormCheck;
+    protected $bootstrapFormElement;
+
+    /**
+     * @var BootstrapFormElementCheck
+     */
+    protected $bootstrapFormElementCheck;
+
+    /**
+     * @var BootstrapFormElementRadio
+     */
+    protected $bootstrapFormElementRadio;
 
     /**
      * @var BootstrapFormInputGroup
      */
     protected $bootstrapFormInputGroup;
-
-    /**
-     * @var BootstrapFormInputElement
-     */
-    protected $bootstrapFormInputElement;
 
     /**
      * @var BootstrapFormInvalidFeedback
@@ -44,24 +49,27 @@ class BootstrapFormInput extends AbstractHelper
     /**
      * Konstruktor
      *
-     * @param BootstrapFormCheck           $bootstrapFormCheck
+     * @param BootstrapFormElement         $bootstrapFormElement
+     * @param BootstrapFormElementCheck    $bootstrapFormElementCheck
+     * @param BootstrapFormElementRadio    $bootstrapFormElementRadio
      * @param BootstrapFormInputGroup      $bootstrapFormInputGroup
-     * @param BootstrapFormInputElement    $bootstrapFormElement
      * @param BootstrapFormInvalidFeedback $bootstrapFormInvalidFeedback
      * @param BootstrapFormOptions         $bootstrapFormOptions
      * @param BootstrapFormText            $bootstrapFormText
      */
     public function __construct(
-        BootstrapFormCheck $bootstrapFormCheck,
+        BootstrapFormElement $bootstrapFormElement,
+        BootstrapFormElementCheck $bootstrapFormElementCheck,
+        BootstrapFormElementRadio $bootstrapFormElementRadio,
         BootstrapFormInputGroup $bootstrapFormInputGroup,
-        BootstrapFormInputElement $bootstrapFormElement,
         BootstrapFormInvalidFeedback $bootstrapFormInvalidFeedback,
         BootstrapFormOptions $bootstrapFormOptions,
         BootstrapFormText $bootstrapFormText
     ) {
-        $this->bootstrapFormCheck           = $bootstrapFormCheck;
+        $this->bootstrapFormElement         = $bootstrapFormElement;
+        $this->bootstrapFormElementCheck    = $bootstrapFormElementCheck;
+        $this->bootstrapFormElementRadio    = $bootstrapFormElementRadio;
         $this->bootstrapFormInputGroup      = $bootstrapFormInputGroup;
-        $this->bootstrapFormInputElement    = $bootstrapFormElement;
         $this->bootstrapFormInvalidFeedback = $bootstrapFormInvalidFeedback;
         $this->bootstrapFormOptions         = $bootstrapFormOptions;
         $this->bootstrapFormText            = $bootstrapFormText;
@@ -90,19 +98,31 @@ class BootstrapFormInput extends AbstractHelper
         if ($element instanceof Checkbox && !$element instanceof MultiCheckbox) {
             return implode(PHP_EOL,[
                 $this->openTag(),
-                $this->bootstrapFormCheck->render($element),
+                $this->bootstrapFormElementCheck->render($element),
                 $this->bootstrapFormText->render($element),
                 $this->bootstrapFormInvalidFeedback->render($element),
                 $this->closeTag()
             ]);
         }
 
-        // Element MultiCheckbox a Radio
-        if ($element instanceof MultiCheckbox || $element instanceof Radio) {
+        // Element Radio
+        if ($element instanceof Radio) {
             return implode(PHP_EOL,[
                 $this->openTag(),
-                $this->bootstrapFormCheck->renderHiddenElement($element),
-                $this->bootstrapFormCheck->renderValueOptions($element),
+                $this->bootstrapFormElementRadio->renderHiddenElement($element),
+                $this->bootstrapFormElementRadio->renderElements($element),
+                $this->bootstrapFormText->render($element),
+                $this->bootstrapFormInvalidFeedback->render($element),
+                $this->closeTag()
+            ]);
+        }
+
+        // Element MultiCheckbox
+        if ($element instanceof MultiCheckbox) {
+            return implode(PHP_EOL,[
+                $this->openTag(),
+                $this->bootstrapFormElementCheck->renderHiddenElement($element),
+                $this->bootstrapFormElementCheck->renderElements($element),
                 $this->bootstrapFormText->render($element),
                 $this->bootstrapFormInvalidFeedback->render($element),
                 $this->closeTag()
@@ -125,7 +145,7 @@ class BootstrapFormInput extends AbstractHelper
 
         return implode(PHP_EOL,[
             $this->openTag(),
-            $this->bootstrapFormInputElement->render($element),
+            $this->bootstrapFormElement->render($element),
             $this->bootstrapFormText->render($element),
             $this->bootstrapFormInvalidFeedback->render($element),
             $this->closeTag()
