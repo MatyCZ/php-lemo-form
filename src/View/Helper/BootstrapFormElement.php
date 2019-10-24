@@ -7,6 +7,8 @@ use IntlDateFormatter;
 use Locale;
 use Zend\Form\Element\Checkbox;
 use Zend\Form\Element\Radio;
+use Zend\Form\Element\Text;
+use Zend\Form\Element\Textarea;
 use Zend\Form\ElementInterface;
 use Zend\Form\View\Helper\FormElement;
 
@@ -68,6 +70,20 @@ class BootstrapFormElement extends AbstractElementHelper
         if ($element instanceof Radio) {
             $html = $this->renderRadio($element);
         } else {
+
+            if (
+                ($element instanceof Text || $element instanceof Textarea)
+                && $element->getValue()
+            ) {
+                $element->setValue(
+                    html_entity_decode(
+                        $element->getValue(),
+                        ENT_COMPAT,
+                        'UTF-8'
+                    )
+                );
+            }
+
             $html = $this->formElement->render($element);
         }
 
