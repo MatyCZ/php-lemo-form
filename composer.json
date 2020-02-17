@@ -6,7 +6,7 @@
         "zf2",
         "bootstrap"
     ],
-    "homepage": "https://github.com/MatyCZ/LemoForm",
+    "homepage": "https://github.com/MatyCZ/php-lemo-form",
     "authors": [
         {
             "name": "Matej Szendi"
