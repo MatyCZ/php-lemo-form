@@ -2,8 +2,8 @@
 
 namespace Lemo\Form\View\Helper;
 
-use Zend\Form\ElementInterface;
-use Zend\Form\View\Helper\FormInput;
+use Laminas\Form\ElementInterface;
+use Laminas\Form\View\Helper\FormInput;
 
 class AbstractElementHelper extends FormInput
 {

@@ -15,11 +15,12 @@
     "require": {
         "php": "^7.3 || ^8.0",
         "ext-intl": "*",
-        "zendframework/zend-form": "2.* || 3.*",
-        "zendframework/zend-i18n": "2.* || 3.*",
-        "zendframework/zend-mvc": "3.*",
-        "zendframework/zend-stdlib": "3.*",
-        "zendframework/zend-view": "2.* || 3.*"
+        "laminas/laminas-form": "2.* || 3.*",
+        "laminas/laminas-i18n": "2.* || 3.*",
+        "laminas/laminas-mvc": "3.*",
+        "laminas/laminas-stdlib": "3.*",
+        "laminas/laminas-view": "2.* || 3.*",
+        "laminas/laminas-dependency-plugin": "^2.1"
     },
     "autoload": {
         "psr-4": {

@@ -2,10 +2,10 @@
 
 namespace Lemo\Form\View\Helper;
 
-use Zend\Form\ElementInterface;
-use Zend\Form\View\Helper\AbstractHelper as ZendAbstractHelper;
+use Laminas\Form\ElementInterface;
+use Laminas\Form\View\Helper\AbstractHelper as LaminasAbstractHelper;
 
-abstract class AbstractHelper extends ZendAbstractHelper
+abstract class AbstractHelper extends LaminasAbstractHelper
 {
     /**
      * @param  ElementInterface $element

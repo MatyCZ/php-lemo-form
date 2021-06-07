@@ -2,11 +2,11 @@
 
 namespace Lemo\Form;
 
-use Zend\Form\ElementInterface;
-use Zend\Form\FieldsetInterface;
-use Zend\Form\Form;
-use Zend\InputFilter\InputFilterInterface;
-use Zend\InputFilter\InputFilterProviderInterface;
+use Laminas\Form\ElementInterface;
+use Laminas\Form\FieldsetInterface;
+use Laminas\Form\Form;
+use Laminas\InputFilter\InputFilterInterface;
+use Laminas\InputFilter\InputFilterProviderInterface;
 
 class BootstrapForm extends Form
 {

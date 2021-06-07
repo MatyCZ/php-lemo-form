@@ -4,8 +4,8 @@ namespace Lemo\Form\View\Helper;
 
 use Lemo\Form\BootstrapFormConstant;
 use Lemo\Form\BootstrapFormOptions;
-use Zend\Form\Element\Radio;
-use Zend\Form\ElementInterface;
+use Laminas\Form\Element\Radio;
+use Laminas\Form\ElementInterface;
 
 class BootstrapFormElementRadio extends AbstractElementHelper
 {

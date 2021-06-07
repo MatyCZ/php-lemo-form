@@ -4,7 +4,7 @@ namespace Lemo\Form\View\Helper;
 
 use Interop\Container\ContainerInterface;
 use Lemo\Form\BootstrapFormOptions as Options;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 class BootstrapFormOptionsFactory implements FactoryInterface
 {

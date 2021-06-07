@@ -3,7 +3,7 @@
 namespace Lemo\Form\View\Helper;
 
 use Interop\Container\ContainerInterface;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 class BootstrapFormInputGroupFactory implements FactoryInterface
 {

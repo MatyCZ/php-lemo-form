@@ -5,12 +5,12 @@ namespace Lemo\Form\View\Helper;
 use DateTime;
 use IntlDateFormatter;
 use Locale;
-use Zend\Form\Element\Checkbox;
-use Zend\Form\Element\Radio;
-use Zend\Form\Element\Text;
-use Zend\Form\Element\Textarea;
-use Zend\Form\ElementInterface;
-use Zend\Form\View\Helper\FormElement;
+use Laminas\Form\Element\Checkbox;
+use Laminas\Form\Element\Radio;
+use Laminas\Form\Element\Text;
+use Laminas\Form\Element\Textarea;
+use Laminas\Form\ElementInterface;
+use Laminas\Form\View\Helper\FormElement;
 
 class BootstrapFormElement extends AbstractElementHelper
 {

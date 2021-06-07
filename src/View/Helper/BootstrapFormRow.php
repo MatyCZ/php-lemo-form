@@ -2,8 +2,8 @@
 
 namespace Lemo\Form\View\Helper;
 
-use Zend\Form\ElementInterface;
-use Zend\Form\FieldsetInterface;
+use Laminas\Form\ElementInterface;
+use Laminas\Form\FieldsetInterface;
 
 class BootstrapFormRow extends AbstractHelper
 {

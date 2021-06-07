@@ -2,7 +2,7 @@
 
 namespace Lemo\Form;
 
-use Zend\Form\Fieldset;
+use Laminas\Form\Fieldset;
 
 class BootstrapFieldsetRow extends Fieldset
 {

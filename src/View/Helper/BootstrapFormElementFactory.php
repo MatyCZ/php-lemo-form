@@ -3,8 +3,8 @@
 namespace Lemo\Form\View\Helper;
 
 use Interop\Container\ContainerInterface;
-use Zend\Form\View\Helper\FormElement;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\Form\View\Helper\FormElement;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 class BootstrapFormElementFactory implements FactoryInterface
 {

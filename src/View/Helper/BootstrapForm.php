@@ -2,10 +2,10 @@
 
 namespace Lemo\Form\View\Helper;
 
-use Zend\Form\Element\Collection;
-use Zend\Form\FormInterface;
-use Zend\Form\View\Helper\Form;
-use Zend\View\Helper\Doctype;
+use Laminas\Form\Element\Collection;
+use Laminas\Form\FormInterface;
+use Laminas\Form\View\Helper\Form;
+use Laminas\View\Helper\Doctype;
 
 class BootstrapForm extends Form
 {

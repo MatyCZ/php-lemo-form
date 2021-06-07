@@ -4,8 +4,8 @@ namespace Lemo\Form\View\Helper;
 
 use Interop\Container\ContainerInterface;
 use Lemo\Form\BootstrapFormOptions;
-use Zend\Form\View\Helper\FormElementErrors;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\Form\View\Helper\FormElementErrors;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 class BootstrapFormInvalidFeedbackFactory implements FactoryInterface
 {

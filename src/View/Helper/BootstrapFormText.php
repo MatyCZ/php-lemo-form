@@ -3,7 +3,7 @@
 namespace Lemo\Form\View\Helper;
 
 use Lemo\Form\BootstrapFormConstant;
-use Zend\Form\ElementInterface;
+use Laminas\Form\ElementInterface;
 
 class BootstrapFormText extends AbstractHelper
 {

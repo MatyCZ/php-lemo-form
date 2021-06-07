@@ -3,8 +3,8 @@
 namespace Lemo\Form\View\Helper;
 
 use Lemo\Form\BootstrapFormOptions;
-use Zend\Form\ElementInterface;
-use Zend\Form\View\Helper\FormElementErrors;
+use Laminas\Form\ElementInterface;
+use Laminas\Form\View\Helper\FormElementErrors;
 
 class BootstrapFormInvalidFeedback extends AbstractHelper
 {
