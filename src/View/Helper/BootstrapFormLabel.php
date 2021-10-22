@@ -2,11 +2,11 @@
 
 namespace Lemo\Form\View\Helper;
 
-use Lemo\Form\BootstrapFormConstant;
-use Lemo\Form\BootstrapFormOptions;
 use Laminas\Form\Element\Checkbox;
 use Laminas\Form\Element\Radio;
 use Laminas\Form\ElementInterface;
+use Lemo\Form\BootstrapFormConstant;
+use Lemo\Form\BootstrapFormOptions;
 
 class BootstrapFormLabel extends AbstractHelper
 {
@@ -110,19 +110,14 @@ class BootstrapFormLabel extends AbstractHelper
         } elseif ($element instanceof Checkbox || $element instanceof Radio) {
             $class = 'form-check-label';
         } else {
-            $class = null;
+            $class = 'control-label';
         }
 
-        // Pridame tridu pro element Checkbox a Radio
         if (null !== $class) {
-            if (array_key_exists('class', $attributes)) {
-                if (array_key_exists('class', $attributes)) {
-                    if (false === strpos($attributes['class'], $class)) {
-                        $attributes['class'] = trim($attributes['class'] . ' ' . $class);
-                    }
-                } else {
-                    $attributes['class'] = $class;
-                }
+            if (array_key_exists('class', $attributes)
+                && false === strpos($attributes['class'], $class)
+            ) {
+                $attributes['class'] = trim($attributes['class'] . ' ' . $class);
             } else {
                 $attributes['class'] = $class;
             }
