@@ -86,7 +86,7 @@ class BootstrapForm extends Form
      * @param  null|FormInterface $form
      * @return string
      */
-    public function openTag(FormInterface $form = null)
+    public function openTag(FormInterface $form = null): string
     {
         $doctype    = $this->getDoctype();
         $attributes = [];
@@ -118,7 +118,7 @@ class BootstrapForm extends Form
      *
      * @return string
      */
-    public function closeTag()
+    public function closeTag(): string
     {
         return '</form>';
     }
